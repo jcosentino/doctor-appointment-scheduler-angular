@@ -20,6 +20,7 @@ import { DxCheckBoxModule,
   DxTextBoxComponent,
   DxDateBoxComponent,
   DxValidationSummaryComponent} from 'devextreme-angular';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { DxCheckBoxModule,
     DxFormModule,
     DxAutocompleteModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
