@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { UserLoggedInGuard } from './guards/user-logged-in/user-logged-in.guard';
 import { LoginComponent } from './home/login/login.component';
 import { RegisterComponent } from './home/register/register.component';
+import { AuthService } from './services/auth.service';
 
 const routes: Routes = [
   {
@@ -13,13 +14,11 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    component: LoginComponent,
-    canActivate: [!UserLoggedInGuard]
+    component: LoginComponent
   },
   {
     path: 'register',
-    component: RegisterComponent,
-    canActivate: [!UserLoggedInGuard]
+    component: RegisterComponent
   },
   {
     path: '**',
@@ -30,6 +29,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [UserLoggedInGuard]
+  providers: [UserLoggedInGuard, AuthService]
 })
 export class AppRoutingModule { }

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { TOKEN_NAME } from 'src/app/constants/constants';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,7 @@ export class UserLoggedInGuard implements CanActivate {
               private router: Router) { }
 
   canActivate(): boolean {
-    console.log(`UserLoggedInGuard:\n${this.auth.getLocalStorage('some_id')}`);
-    if (this.auth.isUserLoggedIn('some_id')) {
+    if (this.auth.isUserLoggedIn(TOKEN_NAME)) {
       return true;
     }
     this.router.navigate(['login']);
