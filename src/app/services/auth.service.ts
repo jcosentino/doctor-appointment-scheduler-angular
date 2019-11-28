@@ -24,7 +24,7 @@ export class AuthService {
     const data = { username, password };
     const config = { headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded') };
 
-    return this.http.post<boolean>(`${'http://127.0.0.1:5000'}${AUTHENTICATE}`, data, config);
+    return this.http.post<boolean>(AUTHENTICATE, data, config);
   }
 
   public login(): void {

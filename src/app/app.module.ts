@@ -8,8 +8,9 @@ import { RegisterComponent } from './home/register/register.component';
 import { HomeComponent } from './home/home.component';
 import { LandingPageComponent } from './home/landing-page/landing-page.component';
 import { StorageServiceModule } from 'angular-webstorage-service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ApiUrlInterceptor } from './http-intercept/http-interceptor';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule
   ],
-  bootstrap: [AppComponent]
+  providers: [ { provide: HTTP_INTERCEPTORS, useClass: ApiUrlInterceptor, multi: true }, ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
