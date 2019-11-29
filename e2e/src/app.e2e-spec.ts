@@ -3,14 +3,24 @@ import { browser, logging } from 'protractor';
 
 describe('workspace-project App', () => {
   let page: AppPage;
+  let text: Promise<string>;
 
   beforeEach(() => {
     page = new AppPage();
+    page.navigateTo();
+    text = page.getAppRootText();
   });
 
-  it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getTitleText()).toEqual('doctor-app app is running!');
+  it('should have a Username span', () => {
+    expect(text).toContain('Username');
+  });
+
+  it('should have a Password span', () => {
+    expect(text).toContain('Password');
+  });
+
+  it('should have a Login button', () => {
+    expect(text).toContain('Login');
   });
 
   afterEach(async () => {
