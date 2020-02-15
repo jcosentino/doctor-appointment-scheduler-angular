@@ -17,8 +17,9 @@ export class LoginComponent implements OnInit {
   }
 
   public authenticate(): void {
-    this.auth.authenticate(this.username, this.password).subscribe(data => {
-      window.alert(data);
-    });
+    // this.auth.authenticate(this.username, this.password).subscribe(data => {
+    //   window.alert(data);
+    // });
+    window.alert('test');
   }
 }

@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './home/login/login.component';
 import { RegisterComponent } from './home/register/register.component';
 import { HomeComponent } from './home/home.component';
-import { LandingPageComponent } from './home/landing-page/landing-page.component';
 import { StorageServiceModule } from 'angular-webstorage-service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -17,8 +16,7 @@ import { ApiUrlInterceptor } from './http-intercept/http-interceptor';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent,
-    LandingPageComponent
+    HomeComponent
   ],
   imports: [
     StorageServiceModule,

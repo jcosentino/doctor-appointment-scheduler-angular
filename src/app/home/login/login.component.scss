@@ -1,5 +1,9 @@
 .login-page {
-    margin: 50vh auto;
-    width: 50vw;
-    height: 50vh;
+    background-color: grey; /*testing*/
+    height: 100%;
+    margin: 20vh 20vw;
+}
+
+.login-items-container {
+    display: grid;
 }

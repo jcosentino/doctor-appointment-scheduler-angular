@@ -22,7 +22,7 @@ export class AuthService {
 
   public authenticate(username: string, password: string): Observable<boolean> {
     const data = { username, password };
-    const config = { headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded') };
+    const config = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
 
     return this.http.post<boolean>(AUTHENTICATE, data, config);
   }
