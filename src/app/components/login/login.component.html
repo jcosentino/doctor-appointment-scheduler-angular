@@ -13,6 +13,6 @@
             type='submit'
             (click)='authenticate()'>{{LOGIN_BUTTON_TEXT}}
         </button>
-        <div class='register-link'><a href='/register'>{{REGISTER_TEXT}}</a></div>
+        <div class='register-link'><a [routerLink]="['/register']">{{REGISTER_TEXT}}</a></div>
     </div>
 </div>

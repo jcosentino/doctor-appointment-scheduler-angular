@@ -17,6 +17,6 @@
             type='submit'
             (click)='registerUser()'>{{REGISTER_BUTTON_TEXT}}
         </button>
-        <div class='login-link'><a href='login'>{{LOGIN_TEXT}}</a></div>
+        <div class='login-link'><a [routerLink]="['/login']">{{LOGIN_TEXT}}</a></div>
     </div>
 </div>
