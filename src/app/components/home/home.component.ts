@@ -10,9 +10,14 @@ import { LOGOUT_BUTTON_TEXT } from '../../constants/constants';
 })
 export class HomeComponent implements OnInit {
   public LOGOUT_BUTTON_TEXT = LOGOUT_BUTTON_TEXT;
+  public username: string;
 
   constructor(private auth: AuthService,
-              private router: Router) { }
+              private router: Router) {
+                this.auth.persistedUsername.subscribe(name => {
+                  this.username = name;
+                });
+              }
 
   ngOnInit() { }
 

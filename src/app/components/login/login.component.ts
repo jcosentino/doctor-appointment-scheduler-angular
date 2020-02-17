@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpParams } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { REGISTER_TEXT, LOGIN_BUTTON_TEXT } from '../../constants/constants';
+import { REGISTER_TEXT, LOGIN_BUTTON_TEXT, LOGIN_BLANK_WARNING } from '../../constants/constants';
 
 @Component({
   selector: 'app-login',
@@ -26,7 +26,11 @@ export class LoginComponent implements OnInit {
     //   window.alert(data);
     //   this.router.navigateByUrl('/');
     // });
-    this.auth.login();
-    this.router.navigateByUrl('/');
+    if (this.username && this.password) {
+      this.auth.login(this.username);
+      this.router.navigateByUrl('/');
+    } else {
+      window.alert(LOGIN_BLANK_WARNING);
+    }
   }
 }
