@@ -1,0 +1,34 @@
+.register-page {
+    background-color: rgb(91, 150, 189);
+    opacity: 0.85;
+    border-radius: 0.7em;
+    height: 60vh;
+    margin: 20vh 20vw;
+    display: grid;
+}
+
+.register-page:hover {
+    opacity: 1.0;
+}
+
+.register-items-container {
+    justify-self: center;
+    align-self: center;
+    display: grid;
+    height: 80%;
+    width: 30%;
+}
+
+.register-items {
+    display: grid;
+    justify-self: stretch;
+    align-self: center;
+}
+
+.register-button {
+    width: 50%;
+    height: 70%;
+    margin: auto;
+    color: red;
+    border-radius: 0.7em;
+}
