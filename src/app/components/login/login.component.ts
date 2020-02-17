@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpParams } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { REGISTER_TEXT, LOGIN_BUTTON_TEXT } from '../../constants/constants';
 
 @Component({
   selector: 'app-login',
@@ -11,6 +12,8 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   private username: string;
   private password: string;
+  private REGISTER_TEXT = REGISTER_TEXT;
+  public LOGIN_BUTTON_TEXT = LOGIN_BUTTON_TEXT;
 
   constructor(private auth: AuthService,
               private router: Router) { }

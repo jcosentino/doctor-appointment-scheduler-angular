@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { LOGOUT_BUTTON_TEXT } from '../../constants/constants';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  public LOGOUT_BUTTON_TEXT = LOGOUT_BUTTON_TEXT;
 
   constructor(private auth: AuthService,
               private router: Router) { }
