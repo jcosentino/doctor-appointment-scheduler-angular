@@ -1,4 +1,3 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppointmentComponent, InsuranceComponent, ProfileComponent } from './components';
 
@@ -7,8 +6,6 @@ import { AppointmentComponent, InsuranceComponent, ProfileComponent } from './co
     AppointmentComponent,
     InsuranceComponent,
     ProfileComponent
-  ],
-  imports: [
   ]
 })
 export class HomeModule { }
