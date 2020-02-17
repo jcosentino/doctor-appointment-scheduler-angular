@@ -4,3 +4,14 @@
     display: grid;
     overflow: auto;
 }
+
+.app-component {
+    background-color: rgb(91, 150, 189);
+    margin: 20vh 20vw;
+    opacity: 0.85;
+    border-radius: 0.7em;
+}
+
+.app-component:hover {
+    opacity: 1.0;
+}

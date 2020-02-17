@@ -3,13 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
-import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components';
+import { RegisterComponent } from './components';
+import { HomeComponent } from './components';
 import { StorageServiceModule } from 'angular-webstorage-service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ApiUrlInterceptor } from './http-intercept/http-interceptor';
+import { HomeModule } from './components';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ApiUrlInterceptor } from './http-intercept/http-interceptor';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    HomeModule
   ],
   providers: [ { provide: HTTP_INTERCEPTORS, useClass: ApiUrlInterceptor, multi: true }, ],
   bootstrap: [ AppComponent ]
