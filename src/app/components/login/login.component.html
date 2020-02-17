@@ -1,8 +1,10 @@
-<div class='login-page app-component' *ngIf='!logginedIn'>
+<div class='login-page app-component'>
     <div class='login-items-container'>
         <div class='login-items'>
             <label for="username">Username: </label>
-            <input type="text" placeholder="Enter Username" name="username" [(ngModel)]="username" required>
+            <input type="text" placeholder="Enter Username"
+                   name="username" [(ngModel)]="username" required
+                   #usernameBoxSelect>
         </div>
         <div class='login-items'>
             <label for="password">Password: </label>
@@ -14,5 +16,6 @@
             (click)='authenticate()'>{{LOGIN_BUTTON_TEXT}}
         </button>
         <div class='register-link'><a [routerLink]="['/register']">{{REGISTER_TEXT}}</a></div>
+        <div class='forgot-password-link'><a [routerLink]="['/forgot']">{{FORGOT_PASSWORD_TEXT}}</a></div>
     </div>
 </div>

@@ -15,3 +15,9 @@
 .app-component:hover {
     opacity: 1.0;
 }
+
+@media screen and (orientation: portrait) {
+    .app-component {
+        opacity: 1.0;
+    }
+}

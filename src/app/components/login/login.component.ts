@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpParams } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { REGISTER_TEXT, LOGIN_BUTTON_TEXT, LOGIN_BLANK_WARNING } from '../../constants/constants';
+import { REGISTER_TEXT,
+         LOGIN_BUTTON_TEXT,
+         LOGIN_BLANK_WARNING,
+         FORGOT_PASSWORD_TEXT } from '../../constants/constants';
 
 @Component({
   selector: 'app-login',
@@ -10,15 +13,18 @@ import { REGISTER_TEXT, LOGIN_BUTTON_TEXT, LOGIN_BLANK_WARNING } from '../../con
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  @ViewChild('usernameBoxSelect', {static: true}) usernameBoxSelect: ElementRef;
   private username: string;
   private password: string;
-  private REGISTER_TEXT = REGISTER_TEXT;
+  public REGISTER_TEXT = REGISTER_TEXT;
   public LOGIN_BUTTON_TEXT = LOGIN_BUTTON_TEXT;
+  public FORGOT_PASSWORD_TEXT = FORGOT_PASSWORD_TEXT;
 
   constructor(private auth: AuthService,
               private router: Router) { }
 
   ngOnInit() {
+    this.usernameBoxSelect.nativeElement.focus();
   }
 
   public authenticate(): void {
@@ -31,6 +37,12 @@ export class LoginComponent implements OnInit {
       this.router.navigateByUrl('/');
     } else {
       window.alert(LOGIN_BLANK_WARNING);
+      this.resetFields();
     }
+  }
+
+  private resetFields(): void {
+    this.username = '';
+    this.password = '';
   }
 }

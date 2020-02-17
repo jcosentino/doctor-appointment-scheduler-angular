@@ -11,13 +11,15 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ApiUrlInterceptor } from './http-intercept/http-interceptor';
 import { HomeModule } from './components';
+import { ForgottenPasswordComponent } from './components';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+    ForgottenPasswordComponent
   ],
   imports: [
     StorageServiceModule,
