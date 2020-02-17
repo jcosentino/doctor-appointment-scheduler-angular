@@ -13,13 +13,9 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       {
-        path: 'home',
+        path: '',
         component: AppointmentComponent,
         canActivate: [UserLoggedInGuard]
-      },
-      {
-        path: '**',
-        redirectTo: 'home'
       }
     ],
     canActivate: [UserLoggedInGuard]
