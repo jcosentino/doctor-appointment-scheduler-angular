@@ -17,18 +17,29 @@
     align-self: center;
 }
 
+.login-items label {
+    font-size: --page-label-size;
+    font-weight: 700;
+    margin-bottom: 0.1vh;
+}
+
+.login-items input {
+    font-size: var(--input-size);
+}
+
 .login-button {
     width: 50%;
     height: 100%;
     margin: auto;
     color: red;
-    border-radius: 0.7em;
+    border-radius: 0.7vh;
+    font-size: var(--click-button-size);
 }
 
 .login-title {
     text-align: center;
-    color: rgb(255, 187, 0);
-    font-size: 1.4em;
+    color: var(--title-color);
+    font-size: var(--title-size);
 }
 
 .login-title h2 {
@@ -37,4 +48,5 @@
 
 .page-links {
     text-align: center;
+    font-size: var(--page-link-size);
 }

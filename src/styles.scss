@@ -14,3 +14,15 @@ body {
     background-repeat: round;
     background-image: url('./background.jpg');
 }
+
+:root {
+    // colors
+    --title-color: rgb(255, 187, 0);
+
+    // font sizes
+    --title-size: 4vh;
+    --page-link-size: 3vh;
+    --input-size: 2.2vh;
+    --page-label-size: 3.5vh;
+    --click-button-size: 2vh;
+}
