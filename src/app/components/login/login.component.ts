@@ -5,7 +5,8 @@ import { Router } from '@angular/router';
 import { REGISTER_TEXT,
          LOGIN_BUTTON_TEXT,
          LOGIN_BLANK_WARNING,
-         FORGOT_PASSWORD_TEXT } from '../../constants/constants';
+         FORGOT_PASSWORD_TEXT, 
+         LOGIN_TITLE} from '../../constants/constants';
 
 @Component({
   selector: 'app-login',
@@ -19,6 +20,7 @@ export class LoginComponent implements OnInit {
   public REGISTER_TEXT = REGISTER_TEXT;
   public LOGIN_BUTTON_TEXT = LOGIN_BUTTON_TEXT;
   public FORGOT_PASSWORD_TEXT = FORGOT_PASSWORD_TEXT;
+  public LOGIN_TITLE = LOGIN_TITLE;
 
   constructor(private auth: AuthService,
               private router: Router) { }

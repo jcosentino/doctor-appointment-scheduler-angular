@@ -1,7 +1,7 @@
 <div class='login-page app-component'>
     <div class='login-items-container'>
         <div class='login-title'>
-            <h2>Please log into the scheduler:</h2>
+            <h2>{{LOGIN_TITLE}}</h2>
         </div>
         <div class='login-items'>
             <label for="username">Username: </label>
@@ -18,7 +18,8 @@
             type='submit'
             (click)='authenticate()'>{{LOGIN_BUTTON_TEXT}}
         </button>
-        <div class='register-link'><a [routerLink]="['/register']">{{REGISTER_TEXT}}</a></div>
-        <div class='forgot-password-link'><a [routerLink]="['/forgot']">{{FORGOT_PASSWORD_TEXT}}</a></div>
+        <br>
+        <div class='page-links register-link'><a [routerLink]="['/register']">{{REGISTER_TEXT}}</a></div>
+        <div class='page-links forgot-password-link'><a [routerLink]="['/forgot']">{{FORGOT_PASSWORD_TEXT}}</a></div>
     </div>
 </div>

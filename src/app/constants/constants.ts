@@ -20,3 +20,4 @@ export const FORGOT_INVALID_WARNING = 'The email is an improper email!';
 export const EMAIL_NEW_PASSWORD =
     `If there is an account associated with that email,
     then the username and new password will be sent to it.`;
+export const LOGIN_TITLE = 'Please log into the scheduler';

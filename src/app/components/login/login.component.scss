@@ -7,7 +7,7 @@
     justify-self: center;
     align-self: center;
     display: grid;
-    height: 80%;
+    height: 100%;
     width: 30%;
 }
 
@@ -19,7 +19,7 @@
 
 .login-button {
     width: 50%;
-    height: 50%;
+    height: 100%;
     margin: auto;
     color: red;
     border-radius: 0.7em;
@@ -28,5 +28,13 @@
 .login-title {
     text-align: center;
     color: rgb(255, 187, 0);
-    font-size: 1em;
+    font-size: 1.4em;
+}
+
+.login-title h2 {
+    margin-bottom: 0;
+}
+
+.page-links {
+    text-align: center;
 }
