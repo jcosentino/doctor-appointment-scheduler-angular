@@ -3,7 +3,7 @@ import { FORGOT_BUTTON_TEXT,
          LOGIN_TEXT,
          FORGOT_BLANK_WARNING,
          EMAIL_NEW_PASSWORD,
-         FORGOT_INVALID_WARNING, 
+         FORGOT_INVALID_WARNING,
          FORGOT_TITLE} from 'src/constants/constants';
 
 @Component({
@@ -21,7 +21,7 @@ export class ForgottenPasswordComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.emailBoxSelect.nativeElement.focus();
+    if (this.emailBoxSelect) { this.emailBoxSelect.nativeElement.focus(); }
   }
 
   public emailValid(email: string): boolean {

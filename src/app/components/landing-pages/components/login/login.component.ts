@@ -6,7 +6,9 @@ import { REGISTER_TEXT,
          LOGIN_BUTTON_TEXT,
          LOGIN_BLANK_WARNING,
          FORGOT_PASSWORD_TEXT,
-         LOGIN_TITLE} from 'src/constants/constants';
+         LOGIN_TITLE,
+         SUCCESSFUL_AUTHENTICATION,
+         UNSUCCESSFUL_AUTHENTICATION } from 'src/constants/constants';
 
 @Component({
   selector: 'app-login',
@@ -15,24 +17,31 @@ import { REGISTER_TEXT,
 })
 export class LoginComponent implements OnInit {
   @ViewChild('usernameBoxSelect', {static: true}) usernameBoxSelect: ElementRef;
-  private username: string;
-  private password: string;
   public REGISTER_TEXT = REGISTER_TEXT;
   public LOGIN_BUTTON_TEXT = LOGIN_BUTTON_TEXT;
   public FORGOT_PASSWORD_TEXT = FORGOT_PASSWORD_TEXT;
   public LOGIN_TITLE = LOGIN_TITLE;
+  private username: string;
+  private password: string;
 
   constructor(private auth: AuthService,
               private router: Router) { }
 
   ngOnInit() {
-    this.usernameBoxSelect.nativeElement.focus();
+    if (this.usernameBoxSelect) {  this.usernameBoxSelect.nativeElement.focus(); }
   }
 
   public authenticate(): void {
     if (this.username && this.password) {
-      this.auth.login(this.username);
-      this.router.navigateByUrl('/home');
+      this.auth.authenticate(this.username, this.password)
+          .subscribe(resp => {
+            if (resp === SUCCESSFUL_AUTHENTICATION) {
+              this.auth.login(this.username);
+              this.router.navigateByUrl('/home');
+            } else {
+              window.alert(UNSUCCESSFUL_AUTHENTICATION);
+            }
+          });
     } else {
       window.alert(LOGIN_BLANK_WARNING);
       this.resetFields();

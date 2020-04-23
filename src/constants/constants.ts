@@ -2,15 +2,21 @@
 export const TOKEN_NAME = 'login_status';
 // http routes
 export const AUTHENTICATE = '/authenticate';
+export const REGISTER_USER = '/registerUser';
 // register page
 export const REGISTER_TEXT = 'Click HERE to register!';
 export const REGISTER_BUTTON_TEXT = 'Register';
 export const REGISTER_TITLE = 'Registration';
+export const REGISTER_BLANK_WARNING = 'The username, password, and email cannot be left blank!';
+export const SUCCESSFUL_REGISTRATION = 'Registration success!';
+export const SUCCESSFUL_REGISTRATION_MESSAGE = `You have successfully registered a new account!`;
 // login page
 export const LOGIN_TEXT = 'Click HERE to return to the login page.';
 export const LOGIN_BUTTON_TEXT = 'Login';
 export const LOGIN_BLANK_WARNING = 'The username and password cannot be left blank!';
 export const LOGOUT_BUTTON_TEXT = 'Logout';
+export const SUCCESSFUL_AUTHENTICATION = 'Authentication succeeded!';
+export const UNSUCCESSFUL_AUTHENTICATION = `Invalid username / or password!`;
 // home page
 export const HOME_BUTTON_TEXT = 'Home';
 // forgot password page
