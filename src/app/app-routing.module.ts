@@ -1,41 +1,54 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
 import { UserLoggedInGuard } from './guards/user-logged-in/user-logged-in.guard';
-import { LoginComponent } from './components';
-import { RegisterComponent } from './components';
 import { AuthService } from './services/auth.service';
+import { LandingPagesComponent, HomeComponent } from './components';
+import { LoginComponent,
+         RegisterComponent,
+         ForgottenPasswordComponent } from './components/landing-pages/components';
 import { AppointmentComponent } from './components/home/components';
-import { ForgottenPasswordComponent } from './components/forgotten-password/forgotten-password.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'home',
     component: HomeComponent,
+    canActivate: [UserLoggedInGuard],
     children: [
       {
-        path: '',
-        component: AppointmentComponent,
-        canActivate: [UserLoggedInGuard]
+        path: 'appointments',
+        component: AppointmentComponent
+      },
+      {
+        path: '**',
+        redirectTo: ''
       }
-    ],
-    canActivate: [UserLoggedInGuard]
+    ]
   },
   {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
-    path: 'register',
-    component: RegisterComponent
-  },
-  {
-    path: 'forgot',
-    component: ForgottenPasswordComponent
+    path: '',
+    component: LandingPagesComponent,
+    children: [
+      {
+        path: 'login',
+        component: LoginComponent
+      },
+      {
+        path: 'register',
+        component: RegisterComponent
+      },
+      {
+        path: 'forgot',
+        component: ForgottenPasswordComponent
+      },
+      {
+        path: '**',
+        redirectTo: 'login'
+      }
+    ]
   },
   {
     path: '**',
-    redirectTo: ''
+    redirectTo: 'home'
   }
 ];
 

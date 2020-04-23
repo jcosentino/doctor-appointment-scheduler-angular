@@ -1,0 +1,27 @@
+<div class='login-items-container'>
+    <div class='login-title'>
+        <h2>{{LOGIN_TITLE}}</h2>
+    </div>
+    <div class='login-items'>
+        <label for='username'></label>
+        <input type='text' placeholder='Enter Username'
+                name='username' [(ngModel)]='username' required
+                #usernameBoxSelect>
+    </div>
+    <div class='login-items'>
+        <label for='password'></label>
+        <input type='password' placeholder='Enter Password' name='password' [(ngModel)]='password' required>
+    </div>
+    <button
+        class='login-button'
+        type='submit'
+        (click)='authenticate()'>{{LOGIN_BUTTON_TEXT}}
+    </button>
+    <br>
+    <div class='page-links register-link'>
+        <a [routerLink]="['/register']">{{REGISTER_TEXT}}</a>
+    </div>
+    <div class='page-links forgot-password-link'>
+        <a [routerLink]="['/forgot']">{{FORGOT_PASSWORD_TEXT}}</a>
+    </div>
+</div>

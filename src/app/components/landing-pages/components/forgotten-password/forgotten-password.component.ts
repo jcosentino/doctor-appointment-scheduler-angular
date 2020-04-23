@@ -3,7 +3,8 @@ import { FORGOT_BUTTON_TEXT,
          LOGIN_TEXT,
          FORGOT_BLANK_WARNING,
          EMAIL_NEW_PASSWORD,
-         FORGOT_INVALID_WARNING } from 'src/app/constants/constants';
+         FORGOT_INVALID_WARNING, 
+         FORGOT_TITLE} from 'src/constants/constants';
 
 @Component({
   selector: 'app-forgotten-password',
@@ -15,6 +16,7 @@ export class ForgottenPasswordComponent implements OnInit {
   public email: string;
   public FORGOT_BUTTON_TEXT = FORGOT_BUTTON_TEXT;
   public LOGIN_TEXT = LOGIN_TEXT;
+  public FORGOT_TITLE = FORGOT_TITLE;
 
   constructor() { }
 

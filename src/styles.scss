@@ -17,12 +17,20 @@ body {
 
 :root {
     // colors
-    --title-color: rgb(255, 187, 0);
+    --title-color: rgb(73, 49, 43);
 
     // font sizes
     --title-size: 4vh;
     --page-link-size: 3vh;
     --input-size: 2.2vh;
     --page-label-size: 3.5vh;
-    --click-button-size: 2vh;
+
+    // labels
+    --label-width: 25vw;
+
+    // buttons
+    --click-button-width: var(--label-width);
+    --click-button-height: 100%;
+    --click-button-color: red;
+    --click-button-font-size: 3vh;
 }

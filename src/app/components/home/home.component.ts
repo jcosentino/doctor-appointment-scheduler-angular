@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
-import { LOGOUT_BUTTON_TEXT } from '../../constants/constants';
+import { LOGOUT_BUTTON_TEXT } from 'src/constants/constants';
 
 @Component({
   selector: 'app-home',

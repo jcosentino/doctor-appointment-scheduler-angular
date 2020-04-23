@@ -1,0 +1,36 @@
+.login-items {
+    margin: 6vh 0;
+}
+
+.login-items input {
+    font-size: var(--input-size);
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    width: 25vw;
+    padding: 1em;
+    text-align: center;
+    box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2), 0 0.25em 0.25em 0 rgba(0, 0, 0, 0.24);
+}
+
+.login-button {
+    width: var(--click-button-width);
+    height: var(--click-button-height);
+    margin: auto auto 3vh auto;
+    color: var(--click-button-color);
+    border-radius: 0.7vh;
+    font-size: var(--click-button-font-size);
+    padding: 1em;
+}
+
+.login-title {
+    text-align: center;
+    color: var(--title-color);
+    font-size: var(--title-size);
+}
+
+.page-links {
+    text-align: center;
+    font-size: var(--page-link-size);
+    margin: 3vh 0;
+}

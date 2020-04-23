@@ -5,8 +5,8 @@ import { Router } from '@angular/router';
 import { REGISTER_TEXT,
          LOGIN_BUTTON_TEXT,
          LOGIN_BLANK_WARNING,
-         FORGOT_PASSWORD_TEXT, 
-         LOGIN_TITLE} from '../../constants/constants';
+         FORGOT_PASSWORD_TEXT,
+         LOGIN_TITLE} from 'src/constants/constants';
 
 @Component({
   selector: 'app-login',
@@ -30,13 +30,9 @@ export class LoginComponent implements OnInit {
   }
 
   public authenticate(): void {
-    // this.auth.authenticate(this.username, this.password).subscribe(data => {
-    //   window.alert(data);
-    //   this.router.navigateByUrl('/');
-    // });
     if (this.username && this.password) {
       this.auth.login(this.username);
-      this.router.navigateByUrl('/');
+      this.router.navigateByUrl('/home');
     } else {
       window.alert(LOGIN_BLANK_WARNING);
       this.resetFields();
