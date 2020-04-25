@@ -23,7 +23,9 @@ import { HomeModule, LandingPagesModule } from './components';
     HomeModule,
     LandingPagesModule
   ],
-  providers: [ { provide: HTTP_INTERCEPTORS, useClass: ApiUrlInterceptor, multi: true }, ],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: ApiUrlInterceptor, multi: true }
+  ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

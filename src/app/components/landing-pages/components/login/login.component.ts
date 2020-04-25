@@ -7,7 +7,8 @@ import { REGISTER_TEXT,
          FORGOT_PASSWORD_TEXT,
          LOGIN_TITLE,
          SUCCESSFUL_AUTHENTICATION,
-         UNSUCCESSFUL_AUTHENTICATION } from 'src/constants/constants';
+         UNSUCCESSFUL_AUTHENTICATION, 
+         TOKEN_NAME} from 'src/constants/constants';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -30,6 +31,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.initialFocus();
+    this.checkLoginStatus();
   }
 
   public authenticate(): void {
@@ -76,5 +78,11 @@ export class LoginComponent implements OnInit {
   private logInAndNavigate(): void {
     this.auth.login(this.username);
     this.router.navigateByUrl('/home');
+  }
+
+  private checkLoginStatus(): void {
+    if (this.auth.isUserLoggedIn(TOKEN_NAME)) {
+      this.router.navigateByUrl('/home');
+    }
   }
 }
