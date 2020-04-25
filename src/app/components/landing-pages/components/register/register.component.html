@@ -3,18 +3,23 @@
         <h2>{{REGISTER_TITLE}}</h2>
     </div>
     <div class='register-items'>
-        <label for='username'></label>
+        <label for='username'>{{USERNAME_CRITERIA}}</label>
         <input type='text' placeholder='Enter Username'
                 name='username' [(ngModel)]='username' required
                 #registrationSelectBox>
     </div>
     <div class='register-items'>
-        <label for='password'></label>
+        <label for='password'>{{PASSWORD_CRITERIA}}</label>
         <input type='password' placeholder='Enter Password' name='password' [(ngModel)]='password' required>
     </div>
     <div class='register-items'>
         <label for='email'></label>
         <input type='text' placeholder='Enter Email' name='email' [(ngModel)]='email' required>
+    </div>
+    <div class='register-items'>
+        <label for='security-answer'>{{securityQuestion}} {{SECURITY_ANSWER_CRITERIA}}</label>
+        <input type='text' [(ngModel)]='securityAnswer' placeholder="{{SECURITY_ANSWER_PROMPT}}" 
+               name='security-answer' required>
     </div>
     <button
         class='register-button'

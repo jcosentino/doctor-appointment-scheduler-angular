@@ -3,6 +3,9 @@ export const TOKEN_NAME = 'login_status';
 // http routes
 export const AUTHENTICATE = '/authenticate';
 export const REGISTER_USER = '/registerUser';
+export const FORGOT_PASSWORD = '/forgotPassword';
+export const GET_USER_ID = '/getUserId';
+export const USER_ROUTE = '/user';
 // register page
 export const REGISTER_TEXT = 'Click HERE to register!';
 export const REGISTER_BUTTON_TEXT = 'Register';
@@ -10,6 +13,13 @@ export const REGISTER_TITLE = 'Registration';
 export const REGISTER_BLANK_WARNING = 'The username, password, and email cannot be left blank!';
 export const SUCCESSFUL_REGISTRATION = 'Registration success!';
 export const SUCCESSFUL_REGISTRATION_MESSAGE = `You have successfully registered a new account!`;
+export const SECURITY_ANSWER_PROMPT = `Please answer security question.`;
+export const USERNAME_CRITERIA = 'Username beginning with a letter, total 6 to 26 characters';
+export const PASSWORD_CRITERIA =
+    `Password must have at least one capital letter, at
+    least one lower-case letter, a number, and have
+    a total of 6 to 26 characters`;
+export const SECURITY_ANSWER_CRITERIA = '(6 to 26 characters)';
 // login page
 export const LOGIN_TEXT = 'Click HERE to return to the login page.';
 export const LOGIN_BUTTON_TEXT = 'Login';
@@ -21,11 +31,20 @@ export const UNSUCCESSFUL_AUTHENTICATION = `Invalid username / or password!`;
 export const HOME_BUTTON_TEXT = 'Home';
 // forgot password page
 export const FORGOT_PASSWORD_TEXT = 'Forgot password?';
-export const FORGOT_BUTTON_TEXT = 'Email Password!';
-export const FORGOT_BLANK_WARNING = 'The email be may not left blank!';
-export const FORGOT_INVALID_WARNING = 'The email is an improper email!';
+export const PROCEED_BUTTON_TEXT = 'Proceed!';
+export const FORGOT_BUTTON_TEXT = 'Reset password!';
 export const FORGOT_TITLE = 'Forgot Password?';
-export const EMAIL_NEW_PASSWORD =
-    `If there is an account associated with that email,
-    then the username and new password will be sent to it.`;
 export const LOGIN_TITLE = 'Please log into the scheduler';
+export const SEC_QUESTION_DEFAULT = '(Security Question)';
+export const SUCCESSFUL_FORGOT_PASSWORD = 'Password has been updated!';
+export const UNSUCCESSFUL_USER_RESPONSE = 'User does not exist!';
+export const BLANK_WARNING = 'Fields may not be left blank!';
+export const USER_NOT_FOUND = 'No user was found!';
+// security question
+export const SEC_QUESTION_ARR = [
+    'Where were you born?',
+    'What is your favorite movie?',
+    'What is your favorite book?',
+    'Where were you born?',
+    'In which year were you born?'
+];

@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
-import { HttpParams } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { REGISTER_TEXT,
          LOGIN_BUTTON_TEXT,
@@ -9,6 +8,7 @@ import { REGISTER_TEXT,
          LOGIN_TITLE,
          SUCCESSFUL_AUTHENTICATION,
          UNSUCCESSFUL_AUTHENTICATION } from 'src/constants/constants';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -25,21 +25,32 @@ export class LoginComponent implements OnInit {
   private password: string;
 
   constructor(private auth: AuthService,
+              private userService: UserService,
               private router: Router) { }
 
   ngOnInit() {
-    if (this.usernameBoxSelect) {  this.usernameBoxSelect.nativeElement.focus(); }
+    this.initialFocus();
   }
 
   public authenticate(): void {
     if (this.username && this.password) {
       this.auth.authenticate(this.username, this.password)
           .subscribe(resp => {
-            if (resp === SUCCESSFUL_AUTHENTICATION) {
-              this.auth.login(this.username);
-              this.router.navigateByUrl('/home');
+            if (resp === SUCCESSFUL_AUTHENTICATION &&
+              this.isEmail(this.username)) {
+              this.userService.getUserId(this.username)
+                  .subscribe(userid => {
+                    this.userService.getUser(userid.userid)
+                        .subscribe(user => {
+                          this.username = user.username;
+                          this.logInAndNavigate();
+                        });
+                  });
+            } else if (resp === SUCCESSFUL_AUTHENTICATION) {
+                this.logInAndNavigate();
             } else {
               window.alert(UNSUCCESSFUL_AUTHENTICATION);
+              this.resetFields();
             }
           });
     } else {
@@ -51,5 +62,19 @@ export class LoginComponent implements OnInit {
   private resetFields(): void {
     this.username = '';
     this.password = '';
+  }
+
+  private initialFocus(): void {
+    if (this.usernameBoxSelect) {  this.usernameBoxSelect.nativeElement.focus(); }
+  }
+
+  private isEmail(email: string): boolean {
+    return email.split('@').length === 2 ||
+           email.replace(/[^a-zA-Z0-9@.]/, '').length === email.length;
+  }
+
+  private logInAndNavigate(): void {
+    this.auth.login(this.username);
+    this.router.navigateByUrl('/home');
   }
 }

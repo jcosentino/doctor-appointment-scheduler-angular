@@ -25,11 +25,12 @@ body {
     --input-size: 2.2vh;
     --page-label-size: 3.5vh;
 
-    // labels
-    --label-width: 25vw;
+    // input items
+    --input-item-width: 25vw;
+    --input-item-width-mobile: 40vw;
 
     // buttons
-    --click-button-width: var(--label-width);
+    --click-button-width: var(--input-item-width);
     --click-button-height: 100%;
     --click-button-color: red;
     --click-button-font-size: 3vh;

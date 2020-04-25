@@ -1,7 +1,7 @@
 import { Injectable, Inject } from '@angular/core';
 import {LOCAL_STORAGE, WebStorageService} from 'angular-webstorage-service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { AUTHENTICATE, TOKEN_NAME, REGISTER_USER } from '../../constants/constants';
+import { AUTHENTICATE, TOKEN_NAME, REGISTER_USER } from 'src/constants/constants';
 import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -39,8 +39,17 @@ export class AuthService {
     this.persistedUsername.next('');
   }
 
-  public register(username: string, password: string, email: string): Observable<string> {
-    const data = { username, password, email };
+  public register(username: string,
+                  password: string,
+                  email: string,
+                  securityQuesNum: number,
+                  securityAnswer: string
+    ): Observable<string> {
+    const data = { username,
+                   password,
+                   email,
+                   sec_ques_num: securityQuesNum,
+                   sec_ques_ans: securityAnswer };
     const config = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
     return this.http.post<string>(REGISTER_USER, data, config);
   }
