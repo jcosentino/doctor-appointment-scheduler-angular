@@ -1,5 +1,6 @@
 // login token
 export const TOKEN_NAME = 'login_status';
+export const USERNAME = 'username';
 // http routes
 export const AUTHENTICATE = '/authenticate';
 export const REGISTER_USER = '/registerUser';

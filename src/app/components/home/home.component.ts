@@ -13,17 +13,21 @@ export class HomeComponent implements OnInit {
   public username: string;
 
   constructor(private auth: AuthService,
-              private router: Router) {
-                this.auth.persistedUsername.subscribe(name => {
-                  this.username = name;
-                });
-              }
+              private router: Router) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.persistUsername();
+  }
 
   public logout(): void {
     this.auth.logout();
     this.router.navigateByUrl('/login');
+  }
+
+  private persistUsername(): void {
+    this.auth.persistedUsername.subscribe(name => {
+      this.username = name;
+    });
   }
 
 }
