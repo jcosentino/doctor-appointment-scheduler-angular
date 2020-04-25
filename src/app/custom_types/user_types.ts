@@ -3,7 +3,7 @@ export interface IUserType {
     username: string;
     email: string;
     sec_ques_num: number;
-    isadmin: boolean;
+    isadmin: number;
     createdDate: Date;
     lastUpdated: Date;
 }
