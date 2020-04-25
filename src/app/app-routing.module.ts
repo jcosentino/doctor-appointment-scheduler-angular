@@ -6,7 +6,8 @@ import { LandingPagesComponent, HomeComponent } from './components';
 import { LoginComponent,
          RegisterComponent,
          ForgottenPasswordComponent } from './components/landing-pages/components';
-import { AppointmentComponent } from './components/home/components';
+import { AppointmentComponent, AdminPageComponent } from './components/home/components';
+import { UserIsAdminGuard } from './guards/user-isadmin/user-isadmin.guard';
 
 const routes: Routes = [
   {
@@ -15,12 +16,17 @@ const routes: Routes = [
     canActivate: [UserLoggedInGuard],
     children: [
       {
+        path: 'admin',
+        component: AdminPageComponent,
+        canActivate: [UserIsAdminGuard]
+      },
+      {
         path: 'appointments',
         component: AppointmentComponent
       },
       {
         path: '**',
-        redirectTo: 'home'
+        redirectTo: 'admin'
       }
     ]
   },
@@ -55,6 +61,10 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [UserLoggedInGuard, AuthService]
+  providers: [
+    UserLoggedInGuard,
+    UserIsAdminGuard,
+    AuthService
+  ]
 })
 export class AppRoutingModule { }

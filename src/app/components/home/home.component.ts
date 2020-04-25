@@ -29,5 +29,4 @@ export class HomeComponent implements OnInit {
       this.username = name;
     });
   }
-
 }

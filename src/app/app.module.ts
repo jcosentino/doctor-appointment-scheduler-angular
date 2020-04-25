@@ -13,7 +13,7 @@ import { HomeModule, LandingPagesModule } from './components';
   declarations: [
     AppComponent,
     HomeComponent,
-    LandingPagesComponent,
+    LandingPagesComponent
   ],
   imports: [
     StorageServiceModule,

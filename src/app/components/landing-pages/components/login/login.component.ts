@@ -7,8 +7,8 @@ import { REGISTER_TEXT,
          FORGOT_PASSWORD_TEXT,
          LOGIN_TITLE,
          SUCCESSFUL_AUTHENTICATION,
-         UNSUCCESSFUL_AUTHENTICATION, 
-         TOKEN_NAME} from 'src/constants/constants';
+         UNSUCCESSFUL_AUTHENTICATION,
+         TOKEN_NAME } from 'src/constants/constants';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({

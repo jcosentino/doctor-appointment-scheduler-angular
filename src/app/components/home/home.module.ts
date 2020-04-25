@@ -1,11 +1,15 @@
 import { NgModule } from '@angular/core';
-import { AppointmentComponent, InsuranceComponent, ProfileComponent } from './components';
+import { AppointmentComponent,
+         InsuranceComponent,
+         ProfileComponent,
+         AdminPageComponent } from './components';
 
 @NgModule({
   declarations: [
     AppointmentComponent,
     InsuranceComponent,
-    ProfileComponent
+    ProfileComponent,
+    AdminPageComponent
   ]
 })
 export class HomeModule { }

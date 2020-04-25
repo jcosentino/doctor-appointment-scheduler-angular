@@ -1,3 +1,12 @@
-.app-home {
-    display: grid;
+.logout-button {
+    width: var(--logout-button-width);
+    height: var(--logout-button-height);
+    color: var(--logout-button-color);
+}
+
+@media screen and (orientation: portrait) {
+    .logout-button {
+        width: var(--logout-button-height);
+        height: var(--logout-button-width);
+    }
 }
