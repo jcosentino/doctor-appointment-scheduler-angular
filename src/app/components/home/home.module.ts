@@ -14,6 +14,12 @@ import { CalendarModule } from 'angular-calendar';
   ],
   imports: [
     CalendarModule
+  ],
+  exports: [
+    AppointmentComponent,
+    InsuranceComponent,
+    ProfileComponent,
+    AdminPageComponent
   ]
 })
 export class HomeModule { }

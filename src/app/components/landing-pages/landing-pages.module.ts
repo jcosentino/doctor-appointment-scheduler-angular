@@ -7,12 +7,17 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
+  declarations: [
+    ForgottenPasswordComponent,
+    LoginComponent,
+    RegisterComponent
+  ],
   imports: [
     FormsModule,
     RouterModule,
     CommonModule
   ],
-  declarations: [
+  exports: [
     ForgottenPasswordComponent,
     LoginComponent,
     RegisterComponent
