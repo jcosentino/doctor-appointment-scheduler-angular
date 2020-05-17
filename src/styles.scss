@@ -9,10 +9,8 @@ body {
     width: 100%;
     margin: auto;
     position: fixed;
-    background-color: lightblue;
     background-size: cover;
-    background-repeat: round;
-    background-image: url('./background.jpg');
+    background: url('./background.jpg') lightblue round;
 }
 
 :root {
