@@ -17,12 +17,12 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  @ViewChild('usernameBoxSelect', {static: true}) usernameBoxSelect: ElementRef;
+  @ViewChild('emailBoxSelect', {static: true}) emailBoxSelect: ElementRef;
   public REGISTER_TEXT = REGISTER_TEXT;
   public LOGIN_BUTTON_TEXT = LOGIN_BUTTON_TEXT;
   public FORGOT_PASSWORD_TEXT = FORGOT_PASSWORD_TEXT;
   public LOGIN_TITLE = LOGIN_TITLE;
-  private username: string;
+  private email: string;
   private password: string;
 
   constructor(private auth: AuthService,
@@ -35,16 +35,16 @@ export class LoginComponent implements OnInit {
   }
 
   public authenticate(): void {
-    if (this.username && this.password) {
-      this.auth.authenticate(this.username, this.password)
+    if (this.email && this.password) {
+      this.auth.authenticate(this.email, this.password)
           .subscribe(resp => {
             if (resp === SUCCESSFUL_AUTHENTICATION &&
-              this.isEmail(this.username)) {
-              this.userService.getUserId(this.username)
+              this.isEmail(this.email)) {
+              this.userService.getUserId(this.email)
                   .subscribe(userid => {
                     this.userService.getUser(userid.userid)
                         .subscribe(user => {
-                          this.username = user.username;
+                          this.email = user.email;
                           this.logInAndNavigate();
                         });
                   });
@@ -62,12 +62,12 @@ export class LoginComponent implements OnInit {
   }
 
   private resetFields(): void {
-    this.username = '';
+    this.email = '';
     this.password = '';
   }
 
   private initialFocus(): void {
-    if (this.usernameBoxSelect) {  this.usernameBoxSelect.nativeElement.focus(); }
+    if (this.emailBoxSelect) {  this.emailBoxSelect.nativeElement.focus(); }
   }
 
   private isEmail(email: string): boolean {
@@ -76,7 +76,7 @@ export class LoginComponent implements OnInit {
   }
 
   private logInAndNavigate(): void {
-    this.auth.login(this.username);
+    this.auth.login(this.email);
     this.router.navigateByUrl('/home');
   }
 

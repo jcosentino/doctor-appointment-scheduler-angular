@@ -8,7 +8,7 @@ import { REGISTER_BUTTON_TEXT,
          SUCCESSFUL_REGISTRATION_MESSAGE,
          SECURITY_ANSWER_PROMPT,
          SECURITY_ANSWER_CRITERIA,
-         USERNAME_CRITERIA,
+         EMAIL_CRITERIA,
          PASSWORD_CRITERIA} from 'src/constants/constants';
 import { AuthService } from 'src/app/services/auth.service';
 import { SecurityQuestionsService } from 'src/app/services/security-questions.service';
@@ -24,12 +24,11 @@ export class RegisterComponent implements OnInit {
   public LOGIN_TEXT = LOGIN_TEXT;
   public REGISTER_TITLE = REGISTER_TITLE;
   public SECURITY_ANSWER_PROMPT = SECURITY_ANSWER_PROMPT;
-  public USERNAME_CRITERIA = USERNAME_CRITERIA;
+  public EMAIL_CRITERIA = EMAIL_CRITERIA;
   public PASSWORD_CRITERIA = PASSWORD_CRITERIA;
   public SECURITY_ANSWER_CRITERIA = SECURITY_ANSWER_CRITERIA;
-  private username: string;
-  private password: string;
   private email: string;
+  private password: string;
   private securityQuesNum: number;
   private securityQuestion: string;
   private securityAnswer: string;
@@ -44,10 +43,9 @@ export class RegisterComponent implements OnInit {
   }
 
   public registerUser(): void {
-    if (this.allFieldsFilled(this.username, this.password, this.email, this.securityAnswer)) {
-      this.auth.register(this.username,
+    if (this.allFieldsFilled(this.email, this.password, this.securityAnswer)) {
+      this.auth.register(this.email,
                          this.password,
-                         this.email,
                          this.securityQuesNum,
                          this.securityAnswer)
           .subscribe(resp => {
@@ -72,10 +70,9 @@ export class RegisterComponent implements OnInit {
     this.securityQuestion = this.secQuesService.getSecurityQuestion(this.securityQuesNum);
   }
 
-  private allFieldsFilled(username: string,
+  private allFieldsFilled(email: string,
                           password: string,
-                          email: string,
                           securityAnswer: string) {
-    return username && password && email && securityAnswer;
+    return email && password && securityAnswer;
   }
 }
